@@ -33,7 +33,7 @@ void setup() {
     }
   }
 
-  current = grid.get(0);
+  current = grid.get(int(random(grid.size())));
 
 }
 
@@ -52,15 +52,15 @@ void draw() {
     next.visited = true;
 
     // STEP 2
-    stack.add(current);
+    //stack.add(current);
 
     // STEP 3
     removeWalls(current, next);
 
     // STEP 4
     current = next;
-  } else if (stack.size() > 0) {
-    current = stack.remove(stack.size()-1);
+  } else {
+    current = grid.get(int(random(grid.size())));
   }
 }
 

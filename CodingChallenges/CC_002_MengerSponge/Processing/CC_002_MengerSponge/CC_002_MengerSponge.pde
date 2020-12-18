@@ -7,13 +7,13 @@ float a = 0;
 
 ArrayList<Box> sponge;
 void setup() {
-  size(400, 400, P3D);
+  size(800, 800, P3D);
 
   // An array of Box objects
   sponge = new ArrayList<Box>();
 
   // Star with one
-  Box b = new Box(0, 0, 0, 200);
+  Box b = new Box(0, 0, 0, 400);
   sponge.add(b);
 }
 void mousePressed() {

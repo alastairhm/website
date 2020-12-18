@@ -24,7 +24,7 @@ class Walker {
 
   void walk() {
     PVector vel = PVector.random2D();
-    // PVector vel = createVector(random(-1, 1), random(-0.5, 1));
+     //PVector vel = new PVector(random(-1, 1), random(-0.5, 1));
     pos.add(vel);
     pos.x = constrain(pos.x, 0, width);
     pos.y = constrain(pos.y, 0, height);
@@ -61,21 +61,27 @@ class Walker {
 }
 
 PVector randomPoint() {
-  int i = floor(random(4));
+  //int i = floor(random(4));
 
-  if (i == 0) {
-    float x = random(width);
-    return new PVector(x, 0);
-  } else if (i == 1) {
-    float x = random(width);
-    return new PVector(x, height);
-  } else if (i == 2) {
+//  if (i == 0) {
+//    float x = random(width);
+//    return new PVector(x, 0);
+//  } else if (i == 1) {
+//    float x = random(width);
+//    return new PVector(x, height);
+//  } else if (i == 2) {
+//    float y = random(height);
+//    return new PVector(0, y);
+//  } else {
+//    float y = random(height);
+//    return new PVector(width, y);
+//  }
+  
     float y = random(height);
-    return new PVector(0, y);
-  } else {
-    float y = random(height);
-    return new PVector(width, y);
-  }
+    float x = random(width);
+    return new PVector(x,y);
+
+  
 }
 
 float distSq(PVector a, PVector b) {

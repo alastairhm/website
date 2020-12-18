@@ -33,7 +33,7 @@ class Box {
     pushMatrix();
     translate(pos.x, pos.y, pos.z);
     noStroke();
-    fill(255);
+    fill(map(pos.x,-400,400,0,255),map(pos.y,-400,400,0,255),map(pos.z,-400,400,0,255));
     box(r);
     popMatrix();
   }

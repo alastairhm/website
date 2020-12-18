@@ -7,22 +7,37 @@
 int x = 0;
 int y = 0;
 int spacing  = 20;
+int interations = 2;
 void setup() {
-  size(400, 400);
+  size(1000, 1000);
   background(0);
+  noLoop();
+  strokeCap(ROUND);
+
 }
 
 void draw() {
-  stroke(255);
-  if (Math.random() > 0.5){
-   line (x,y,x+spacing,y+spacing);// "\"
+  
+  for (int i = 0; i < interations; i++) {
+    for (int y = 0; y < height; y=y+spacing) {
+      for (int x = 0; x < width; x=x+spacing) {
+        if (i < (interations/2)) {
+          stroke(255,0,0,128); //255/(i+1));
+        }
+        else
+        { 
+          stroke(0,255,0,128); //255/(i+1));
+        }
+        strokeWeight(8); //(spacing/8)*i);
+        
+        if (Math.random() > 0.5){
+         line (x,y,x+spacing,y+spacing);// "\"
+        }
+        else {
+         line (x,y+spacing , x+spacing,y);// "/"
+        }
+      }
+    }
   }
-  else {
-   line (x,y+spacing , x+spacing,y);// "/"
-  }
-  x = x+spacing;
-  if (x > width){
-  x = 0;
-  y = y+spacing;
-  }
+  //save("weave2.png");
 }

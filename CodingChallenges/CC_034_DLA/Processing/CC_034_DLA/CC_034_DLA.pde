@@ -10,19 +10,26 @@ List<Walker> tree = new ArrayList<Walker>();
 List<Walker> walkers = new ArrayList<Walker>();
 //float r = 4;
 int maxWalkers = 50;
-int iterations = 1000;
+int iterations = 5000;
 float radius = 12;
 float hue = 0;
-float shrink = 0.995;
+float shrink = 0.999;
 
 void setup() {
-  size(600, 600);
+  size(1500, 1500);
   colorMode(HSB, 360, 100, 100);
-  // for (int x = 0; x < width; x += r * 2) {
-  //   tree.add(new Walker(x, height));
-  // }
+   for (int x = 0; x < width; x += radius * 2) {
+     //tree.add(new Walker(x, 0));
+     tree.add(new Walker(x, height));
+   }
 
-  tree.add(new Walker(width / 2, height / 2));
+//   for (int y = 0; y < height; y += radius * 2) {
+//     tree.add(new Walker(0, y));
+//     tree.add(new Walker(width, y));
+//   }
+   
+
+  //tree.add(new Walker(width / 2, height / 2));
   radius *= shrink;
   for (int i = 0; i < maxWalkers; i++) {
     walkers.add(new Walker());
@@ -59,4 +66,5 @@ void draw() {
     radius *= shrink;
     walkers.add(new Walker());
   }
+  
 }
